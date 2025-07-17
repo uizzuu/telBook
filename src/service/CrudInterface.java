@@ -5,11 +5,11 @@ import dto.TelDto;
 import java.util.List;
 
 public interface CrudInterface {
-    int InsertData(TelDto dto);
+    int insertData(TelDto dto);
 
-    int UpdateData(TelDto dto);
+    int updateData(TelDto dto);
 
-    int DeleteData(int id);
+    int deleteData(int id);
 
     List<TelDto> getListAll(); // 전체 데이터 찾기
 

@@ -17,19 +17,35 @@ public class TelBookService implements CrudInterface {
     String sql;
 
     @Override
-    public int InsertData(TelDto dto) {
+    public int insertData(TelDto dto) {
         System.out.println("[TelBookService.InsertData]");
+        try {
+            sql = "INSERT INTO telbook(name, age, address, phone)";
+            sql = sql + "VALUES(?, ?, ?, ?)";
+            psmt = conn.prepareStatement(sql);
+            // 각 ? 자리에 Mapping 해준다.
+            psmt.setString(1, dto.getName());
+            psmt.setInt(2, dto.getAge());
+            psmt.setString(3, dto.getAddress());
+            psmt.setString(4, dto.getPhone());
+            // 쿼리 실행하기
+            int result = psmt.executeUpdate();
+            psmt.close();
+            return result;
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
         return 0;
     }
 
     @Override
-    public int UpdateData(TelDto dto) {
+    public int updateData(TelDto dto) {
         System.out.println("[TelBookService.UpdateData]");
         return 0;
     }
 
     @Override
-    public int DeleteData(int id) {
+    public int deleteData(int id) {
         System.out.println("[TelBookService.DeleteData]");
         return 0;
     }
