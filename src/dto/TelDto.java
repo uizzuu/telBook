@@ -10,7 +10,7 @@ public class TelDto {
     // toString
     public String toString() {
         String str = String.format(
-                "아이디 %d 이름 %s \n나이 %s \n주소 %s \n전화번호 %s \n",
+                "아이디 %d \n이름 %s \n나이 %s \n주소 %s \n전화번호 %s \n",
                 id, name, age, address, phone);
         return str;
     }
